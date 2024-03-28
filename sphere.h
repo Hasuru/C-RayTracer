@@ -9,7 +9,7 @@ class sphere : public hittable
     public:
         sphere(point3 _center, double _radius) : center(_center), radius(_radius) {}
 
-        bool hit(const ray &ray, double ray_tmin, double ray_tmax, hit_record &rec)
+        bool hit(const ray &ray, interval ray_t, hit_record &rec) const override
         {
             vec3 oc = ray.origin() - center;
             auto a = ray.direction().length_squared();
@@ -22,16 +22,17 @@ class sphere : public hittable
 
             // FIND NEAREAST ROOT IN THE INTERVAL
             auto root = (-half_b - sqrtd) / a;
-            if (root <= ray_tmin || ray_tmax <= root)
+            if (!ray_t.surrounds(root))
             {
                 // CHECK FOR THE OTHER SOLUTION
                 root = (-half_b + sqrtd) / a;
-                if (root <= ray_tmin || ray_tmax <= root) return false;
+                if (!ray_t.surrounds(root)) return false;
             }
 
             rec.t = root;
             rec.p = ray.at(rec.t);
-            rec.normal = (rec.p - center) / radius;
+            vec3 outward_normal = (rec.p - center) / radius;
+            rec.set_face_normal(ray, outward_normal);
 
             return true;
         }
