@@ -19,6 +19,7 @@ While updating the project **i'll try as much as possible to share all the mater
 
 ## Materials
 - [Ray Tracing in One Week](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
+- [A Pixel is not a little square](https://www.researchgate.net/publication/244986797_A_Pixel_Is_Not_A_Little_Square_A_Pixel_Is_Not_A_Little_Square_A_Pixel_Is_Not_A_Little_Square)
 
 ## Tools
 - [CMake](https://cmake.org/)
