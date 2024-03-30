@@ -1,4 +1,7 @@
 # RAY TRACER
+Latest  renderization
+
+![render](image.png)
 
 ## About
 The current project consists in creating a simple Ray Tracer with vanilla C++ by following the article [Ray Tracing in One Week](https://raytracing.github.io/books/RayTracingInOneWeekend.html).
